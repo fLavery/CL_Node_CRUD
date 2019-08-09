@@ -21,6 +21,7 @@ def get_tasks():
 def add_task():
     return render_template('addtask.html',
                            categories=mongo.db.categories.find())
+                          
 
 
 @app.route('/insert_task', methods=['POST'])
@@ -86,6 +87,10 @@ def insert_category():
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
+    
+@app.route('/filter_task')
+def filter_task():
+    return render_template('filter.html', categories=mongo.db.categories.find())
 
 
 if __name__ == '__main__':
