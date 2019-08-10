@@ -44,6 +44,7 @@ def update_task(task_id):
         'category_name':request.form.get('category_name'),
         'task_description': request.form.get('task_description'),
         'ingredients_list': request.form.get('ingredients_list'),
+        'instructions': request.form.get('instructions'),
         'image_url':request.form.get('image_url')
     })
     return redirect(url_for('filter_task'))

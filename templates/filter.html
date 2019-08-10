@@ -7,8 +7,8 @@
       <img src="https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_1280.jpg">
       <!-- random image -->
       <div class="caption center-align">
-        <h3>This is our big Tagline!</h3>
-        <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        <h3>Welcome to your online cookbook!</h3>
+        <h5 class="light grey-text text-lighten-3">Great recipes at your finger tips</h5>
       </div>
     </li>
     <li>
@@ -82,14 +82,44 @@
            
           </div>
           <div class="card-action">
-            <a href='{{url_for('delete_task', task_id=task._id)}}'>Delete Recipe</a>
-            <a href='{{url_for('edit_task', task_id=task._id)}}'>Edit Recipe</a>
+            <a class="modal-trigger" href="#{{task._id}}">view</a>
+            <a href='{{url_for('delete_task', task_id=task._id)}}'>Delete</a>
+            <a href='{{url_for('edit_task', task_id=task._id)}}'>Edit</a>
           </div>
         </div>
         <!-- End of card -->
 
 
       </div>
+      <div id="{{task._id}}" class="modal">
+      <div class="modal-content">
+        <div class="row">
+          <div class="col s12 m6"><div class="card__meta">
+              <a href="#">{{task.category_name}}</a>
+
+            </div>
+            <span class="card-title grey-text text-darken-4">{{task.task_name}}</span>
+
+            <p class="card-subtitle grey-text text-darken-2">{{task.task_description}}</p>
+            
+            </br>
+            <span class="card-title grey-text text-darken-4">Ingredients</span>
+            <p class="card-subtitle grey-text text-darken-2">{{task.ingredients_list}}</p>
+            </div>
+
+          <div class="col s6 offset-s3 m6 center">
+          <div class="card-image materialboxed">
+            <img src="{{task.image_url}}">
+
+          </div>
+        </div>
+        </div>
+            <span class="card-title grey-text text-darken-4">Instructions</span>
+            <p class="card-subtitle grey-text text-darken-2">{{task.instructions}}</p>
+        </div>
+
+
+</div>
       <!-- End of col -->
       {% endfor %}
       <!-- Col: Card 1 -->
@@ -144,6 +174,13 @@
                 <i class="material-icons prefix">subject</i>
                 <textarea name="image_url" id="image_url" class="materialize-textarea"></textarea>
                 <label for="icon_telephone">Image_url</label>
+            </div>
+        </div>
+          <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="instructions" id="instructions" class="materialize-textarea"></textarea>
+                <label for="icon_telephone">Instructionss</label>
             </div>
         </div>
         <div class="row">
