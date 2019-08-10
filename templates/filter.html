@@ -4,7 +4,7 @@
 <div class="slider">
   <ul class="slides">
     <li>
-      <img src="https://lorempixel.com/580/250/nature/1">
+      <img src="https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_1280.jpg">
       <!-- random image -->
       <div class="caption center-align">
         <h3>This is our big Tagline!</h3>
@@ -12,7 +12,7 @@
       </div>
     </li>
     <li>
-      <img src="https://lorempixel.com/580/250/nature/2">
+      <img src="https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg">
       <!-- random image -->
       <div class="caption left-align">
         <h3>Left Aligned Caption</h3>
@@ -20,7 +20,7 @@
       </div>
     </li>
     <li>
-      <img src="https://lorempixel.com/580/250/nature/3">
+      <img src="https://cdn.pixabay.com/photo/2017/03/23/19/57/asparagus-2169305_1280.jpg">
       <!-- random image -->
       <div class="caption right-align">
         <h3>Right Aligned Caption</h3>
@@ -28,7 +28,7 @@
       </div>
     </li>
     <li>
-      <img src="https://lorempixel.com/580/250/nature/4">
+      <img src="https://cdn.pixabay.com/photo/2010/12/13/10/25/appetizer-2802_1280.jpg">
       <!-- random image -->
       <div class="caption center-align">
         <h3>This is our big Tagline!</h3>
@@ -62,26 +62,28 @@
         <div class="card">
 
           <div class="card-image materialboxed">
-            <img src="https://via.placeholder.com/300">
+            <img src="{{task.image_url}}">
             <!--<span class="card-title">Card Title</span>-->
           </div>
           <div class="card-content white-text">
 
             <div class="card__meta">
-              <a href="#"><i class="small material-icons">room</i>{{task.task_name}}</a>
+              <a href="#"><i class="small material-icons">room</i>{{task.category_name}}</a>
 
             </div>
             <span class="card-title grey-text text-darken-4">{{task.task_name}}</span>
 
-            <p class="card-subtitle grey-text text-darken-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...lacus eleifend lacinia... go!</p>
+            <p class="card-subtitle grey-text text-darken-2">{{task.task_description}}</p>
+            
+            </br>
+            <span class="card-title grey-text text-darken-4">Ingredients</span>
+            <p class="card-subtitle grey-text text-darken-2">{{task.ingredients_list}}</p>
 
-            <div class="row card-row">
-              <span class="text-darken-2 card-info"><i class="small material-icons">schedule</i>&nbsp;lindy hop, balboa, charleston</span>
-            </div>
+           
           </div>
           <div class="card-action">
-            <a href="#"><i class="material-icons">&nbsp;language</i>VISIT WEB</a>
-            <a href="#" class="card-action-right"><i class="material-icons">&nbsp;share</i>SHARE</a>
+            <a href='{{url_for('delete_task', task_id=task._id)}}'>Delete Recipe</a>
+            <a href='{{url_for('edit_task', task_id=task._id)}}'>Edit Recipe</a>
           </div>
         </div>
         <!-- End of card -->
@@ -114,40 +116,38 @@
                       <option value="{{cat.category_name}}">{{cat.category_name}}</option>
                   {% endfor %}
                 </select>
-              <label>Task Category</label>
+              <label>Recipe Category</label>
             </div>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix">assignment</i>
             <input id="task_name" name="task_name" type="text">
-            <label for="icon_prefix">Task Name</label>
+            <label for="icon_prefix">Recipe Name</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">subject</i>
             <textarea name="task_description" id="task_description" class="materialize-textarea"></textarea>
-            <label for="icon_telephone">Task Description</label>
+            <label for="icon_telephone">Recipe Description</label>
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s12" id="matfix">
-            <i class="material-icons prefix">today</i>
-            <input id="due_date" name="due_date" type="text" class="datepicker">
-            <label for="icon_prefix">Due Date</label>
-          </div>
+         <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="ingredients_list" id="ingredients_list" class="materialize-textarea"></textarea>
+                <label for="icon_telephone">Ingredients list</label>
+            </div>
+        </div>
+          <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="image_url" id="image_url" class="materialize-textarea"></textarea>
+                <label for="icon_telephone">Image_url</label>
+            </div>
         </div>
         <div class="row">
-          <div class="switch">
-            <label>
-                  <input id="is_urgent" name="is_urgent" type="checkbox">
-                  <span class="lever"></span>
-                  Is Urgent
-                </label>
-          </div>
-        </div>
-        <div class="row">
-          <button class="btn waves-effect waves-light" type="submit" name="action">Add Task
+          <button class="btn waves-effect waves-light" type="submit" name="action">Add Recipe
                 <i class="material-icons right">playlist_add</i>
              </button>
         </div>
@@ -155,8 +155,7 @@
     </div>
 
   </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-  </div>
+
 </div>
+
 {% endblock %}

@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Add Task</h3>
+<h3>Add Recipe</h3>
 <div class="row">
     <form action="{{ url_for('insert_task') }}" method="POST"  class="col s12">
         <div class="row">
@@ -12,7 +12,7 @@
                       <option value="{{cat.category_name}}">{{cat.category_name}}</option>
                   {% endfor %}
                 </select>
-                    <label>Task Category</label>
+                    <label>Recipe Category</label>
                 </div>
             </div>
             <div class="input-field col s12">
@@ -25,6 +25,13 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
                 <textarea name="task_description" id="task_description" class="materialize-textarea"></textarea>
+                <label for="icon_telephone">Task Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="ingredients_list" id="ingredients_list" class="materialize-textarea"></textarea>
                 <label for="icon_telephone">Task Description</label>
             </div>
         </div>

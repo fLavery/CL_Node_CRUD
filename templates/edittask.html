@@ -31,18 +31,16 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <i class="material-icons prefix">today</i>
-                <input id="due_date" name="due_date" type="text" class="datepicker" value="{{task.due_date}}">
-                <label for="icon_prefix">Due Date</label>
+                <i class="material-icons prefix">subject</i>
+                <textarea name="ingredients_list" id="ingredients_list" class="materialize-textarea">{{task.ingredients_list}}</textarea>
+                <label for="icon_telephone">Ingredients list</label>
             </div>
         </div>
-        <div class="row">
-            <div class="switch">
-                <label>
-                  <input id="is_urgent" name="is_urgent" type="checkbox" value="{{task.is_urgent}}">
-                  <span class="lever"></span>
-                  Is Urgent
-                </label>
+          <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="image_url" id="image_url" class="materialize-textarea">{{task.image_url}}</textarea>
+                <label for="icon_telephone">image_url</label>
             </div>
         </div>
         <div class="row">
@@ -52,4 +50,6 @@
         </div>
     </form>
 </div>
+
+
 {% endblock %}

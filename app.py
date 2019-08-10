@@ -11,11 +11,10 @@ app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 mongo = PyMongo(app)
 
 @app.route('/')
-@app.route('/get_tasks')
-def get_tasks():
-    return render_template("tasks.html", 
-                           tasks=mongo.db.tasks.find())
 
+@app.route('/filter_task')
+def filter_task():
+    return render_template('filter.html', categories=mongo.db.categories.find(), tasks=mongo.db.tasks.find())
 
 @app.route('/add_task')
 def add_task():
@@ -28,7 +27,7 @@ def add_task():
 def insert_task():
     tasks = mongo.db.tasks
     tasks.insert_one(request.form.to_dict())
-    return redirect(url_for('get_tasks'))
+    return redirect(url_for('filter_task'))
     
 @app.route('/edit_task/<task_id>')
 def edit_task(task_id):
@@ -44,15 +43,15 @@ def update_task(task_id):
         'task_name':request.form.get('task_name'),
         'category_name':request.form.get('category_name'),
         'task_description': request.form.get('task_description'),
-        'due_date': request.form.get('due_date'),
-        'is_urgent':request.form.get('is_urgent')
+        'ingredients_list': request.form.get('ingredients_list'),
+        'image_url':request.form.get('image_url')
     })
-    return redirect(url_for('get_tasks'))
+    return redirect(url_for('filter_task'))
 
 @app.route('/delete_task/<task_id>')
 def delete_task(task_id):
     mongo.db.tasks.remove({'_id': ObjectId(task_id)})
-    return redirect(url_for('get_tasks'))
+    return redirect(url_for('filter_task'))
 
 @app.route('/get_categories')
 def get_categories():
@@ -88,10 +87,12 @@ def insert_category():
 def add_category():
     return render_template('addcategory.html')
     
-@app.route('/filter_task')
-def filter_task():
-    return render_template('filter.html', categories=mongo.db.categories.find(), tasks=mongo.db.tasks.find())
 
+
+@app.route('/get_tasks')
+def get_tasks():
+    return render_template("tasks.html", 
+                           tasks=mongo.db.tasks.find())
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
