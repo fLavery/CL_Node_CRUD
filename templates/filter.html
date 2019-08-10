@@ -98,22 +98,24 @@
               <a href="#">{{task.category_name}}</a>
 
             </div>
-            <span class="card-title grey-text text-darken-4">{{task.task_name}}</span>
+            <h1>{{task.task_name}}</h1>
 
             <p class="card-subtitle grey-text text-darken-2">{{task.task_description}}</p>
             
-            </br>
-            <span class="card-title grey-text text-darken-4">Ingredients</span>
-            <p class="card-subtitle grey-text text-darken-2">{{task.ingredients_list}}</p>
+   
+
             </div>
 
           <div class="col s6 offset-s3 m6 center">
           <div class="card-image materialboxed">
-            <img src="{{task.image_url}}">
+            <img class="circle responsive-img" src="{{task.image_url}}">
 
           </div>
         </div>
+        
         </div>
+                    <span class="card-title grey-text text-darken-4">Ingredients</span>
+            <p class="card-subtitle grey-text text-darken-2">{{task.ingredients_list}}</p>
             <span class="card-title grey-text text-darken-4">Instructions</span>
             <p class="card-subtitle grey-text text-darken-2">{{task.instructions}}</p>
         </div>
