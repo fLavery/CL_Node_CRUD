@@ -90,7 +90,7 @@ def add_category():
     
 @app.route('/filter_task')
 def filter_task():
-    return render_template('filter.html', categories=mongo.db.categories.find())
+    return render_template('filter.html', categories=mongo.db.categories.find(), tasks=mongo.db.tasks.find())
 
 
 if __name__ == '__main__':

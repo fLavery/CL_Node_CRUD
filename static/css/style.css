@@ -14,3 +14,11 @@
     margin-top: 6px;
 }
 
+
+.slider{
+    z-index: -2;
+}
+
+nav{
+    background-color: #4caf50;
+}
