@@ -46,6 +46,7 @@ Recipe Editing and deletion
 - filter by categories functionality
 - user Authentication so that users can only edit and delete their own entrys
 - form validation so users can only enter valid recipe formats
+- warning modal so that users don't accidentally delete a recipe
 
 ## Technologies Used
 
@@ -89,6 +90,7 @@ This website was deployed using heroku and you can check it out [here](https://f
 ### Media
 
 - Recipe entrys were taken from BBC Recipes website
+- Pixabay for royalty free slider images
 
 ### Acknowledgements
 
