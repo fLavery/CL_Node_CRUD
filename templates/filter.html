@@ -61,8 +61,8 @@
         <!-- Card 1 -->
         <div class="card">
 
-          <div class="card-image materialboxed">
-            <img src="{{task.image_url}}">
+          <div class="card-image ">
+            <img class="card-fixed-image" height='250' src="{{task.image_url}}">
             <!--<span class="card-title">Card Title</span>-->
           </div>
           <div class="card-content white-text">
@@ -73,11 +73,11 @@
             </div>
             <span class="card-title grey-text text-darken-4">{{task.task_name}}</span>
 
-            <p class="card-subtitle grey-text text-darken-2">{{task.task_description}}</p>
+            <p class="card-subtitle grey-text text-darken-2">{{task.task_description[:100]}}...</p>
             
             </br>
             <span class="card-title grey-text text-darken-4">Ingredients</span>
-            <p class="card-subtitle grey-text text-darken-2">{{task.ingredients_list}}</p>
+            <p class="card-subtitle grey-text text-darken-2">{{task.ingredients_list[:100]}}...</p>
 
            
           </div>
@@ -89,7 +89,7 @@
         </div>
         <!-- End of card -->
 
-
+      <!--View Recipe Modal-->
       </div>
       <div id="{{task._id}}" class="modal">
       <div class="modal-content">
@@ -105,16 +105,15 @@
    
 
             </div>
-
+          <!--View image modal-->
           <div class="col s6 offset-s3 m6 center">
           <div class="card-image materialboxed">
             <img class="circle responsive-img" src="{{task.image_url}}">
-
           </div>
         </div>
         
         </div>
-                    <span class="card-title grey-text text-darken-4">Ingredients</span>
+            <span class="card-title grey-text text-darken-4">Ingredients</span>
             <p class="card-subtitle grey-text text-darken-2">{{task.ingredients_list}}</p>
             <span class="card-title grey-text text-darken-4">Instructions</span>
             <p class="card-subtitle grey-text text-darken-2">{{task.instructions}}</p>
@@ -182,7 +181,7 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
                 <textarea name="instructions" id="instructions" class="materialize-textarea"></textarea>
-                <label for="icon_telephone">Instructionss</label>
+                <label for="icon_telephone">Instructions</label>
             </div>
         </div>
         <div class="row">

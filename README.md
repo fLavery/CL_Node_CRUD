@@ -47,6 +47,7 @@ Recipe Editing and deletion
 - user Authentication so that users can only edit and delete their own entrys
 - form validation so users can only enter valid recipe formats
 - warning modal so that users don't accidentally delete a recipe
+- pagination
 
 ## Technologies Used
 
@@ -82,6 +83,7 @@ Issues yet to be resolved
 
 - Add Recipe modal layout has too much white space depending on how long the recipe contents are
 - Placeholder  image for when users submit invalid or no image for a recipe
+- 
 
 ## Deployment
 

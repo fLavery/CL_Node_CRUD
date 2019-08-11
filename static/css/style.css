@@ -30,3 +30,9 @@ nav{
 .caption{
     text-shadow: 2px 2px 11px #000000;
 }
+
+.card-fixed-image{
+      background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;   
+}
