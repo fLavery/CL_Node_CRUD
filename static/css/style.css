@@ -26,3 +26,7 @@ nav{
 .modal{
     width:75%;
 }
+
+.caption{
+    text-shadow: 2px 2px 11px #000000;
+}
